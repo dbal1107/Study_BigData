@@ -10,8 +10,8 @@ import pandas as pd
 ServiceKey = 'Ody77GLuYeR%2FeFqbpduMN2Bi4Cka2fztbgnj6E2Eux1kUhy3e4epR28XKBUaObiqPoVzAizxXMBPXtMyuC9v9Q%3D%3D'
 
 # url 접속 요청 후 응답 리턴 함수
-def getRequestUrl(url):
-    req = urllib.request.Request(url) # url 보내고 req 객체 만듬
+def getRequestUrl(url):   
+    req = urllib.request.Request(url) # url 보내고 req 객체 만듦
 
     try:
         res = urllib.request.urlopen(req)
@@ -61,7 +61,7 @@ def getTourismStatsService(nat_cd, ed_cd, nStartYear, nEndYear):
                print(f'제공되는 데이터는 {year}년 {month-1}월까지 입니다.')
                break
 
-         print(json.dumps(jsonData, indent=3, sort_keys=True, ensure_ascii=False))
+         print(json.dumps(jsonData, indent=4, sort_keys=True, ensure_ascii=False))
          natName = jsonData['response']['body']['items']['item']['natKorNm']
          natName = natName.replace(' ','')
          num = jsonData['response']['body']['items']['item']['num']
@@ -92,8 +92,12 @@ def main():
    if natName == '':
       print('데이터 전달 실패. 공공데이터포털 서비스 확인 요망')
    else:
-      pass
-      # with open('./%s_%s_%d_%s.json')
+      columns=['입국국가','국가코드','입국연월','입국자수'] # csv
+      result_df=pd.DataFrame(result, columns=columns)
+      result_df.to_csv(f'./{natName}_{ed}_{nStartYear}_{dataEnd}.csv',
+                        index=False, encoding='utf8')
 
-if __name__ =='__main__':
+      print('csv파일 저장완료!!')
+
+if __name__ == '__main__':
     main()

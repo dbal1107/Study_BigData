@@ -14,7 +14,7 @@ client_secret = 'y9qxXxDaS0'
 
 # url 접속 요청 후 응답 리턴 함수
 def getRequestUrl(url):
-    req = urllib.request.Request(url) # url 보내고 req 객체 만듬
+    req = urllib.request.Request(url) # url 보내고 req 객체 만듦
     req.add_header('X-Naver-Client-Id', client_id)
     req.add_header('X-Naver-Client-Secret', client_secret)
 
