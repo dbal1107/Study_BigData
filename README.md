@@ -19,9 +19,10 @@
 ## Day 3
 - 웹 크롤링
   - Beautifulsoup
+    - csv 처리 : 할리스 매장정보
   - Selenium
-- 빅데이터 분석
-  - 통계분석
+    - csv 처리 : 커피빈 매장정보
+    - matplotlib : 스벅-이디야 비교
 
 ## Day 4
 
