@@ -25,6 +25,11 @@
     - matplotlib : 스벅-이디야 비교
 
 ## Day 4
+  - 빅데이터 분석
+      - 통계분석
+        - wine quality
+      - 상관분석
+        - titanic
 
 ## Day 5
 
