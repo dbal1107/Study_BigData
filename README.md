@@ -47,3 +47,7 @@
 - PyQt5 학습
   - PyQt5, Designer 설치
   - PyQt5 기본폼 만들기
+
+## PyQt 2
+- PyQt5 학습
+  - Qt Designer 사용
