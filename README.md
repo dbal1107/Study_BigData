@@ -50,4 +50,5 @@
 
 ## PyQt 2
 - PyQt5 학습
-  - Qt Designer 사용
+  - Qt Designer로 UI 생성
+  - 네이버 API로 네이버뉴스, 영화 검색앱 만들기
