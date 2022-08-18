@@ -52,3 +52,6 @@
 - PyQt5 학습
   - Qt Designer로 UI 생성
   - 네이버 API로 네이버뉴스, 영화 검색앱 만들기
+  
+ < 크롤링 화면 >
+![image](https://raw.githubusercontent.com/dbal1107/Study_BigData/main/pyqt03/navernews_crowling.png)
