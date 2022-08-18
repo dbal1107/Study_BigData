@@ -53,19 +53,22 @@ class qTemplate(QWidget):
 
     def makeTable(self, result):
         self.tblResult.setSelectionMode(QAbstractItemView.SingleSelection) # qtdesigner 에서 수정가능
-        self.tblResult.setColumnCount(2)
+        self.tblResult.setColumnCount(3)
         self.tblResult.setRowCount(len(result)) # displayCount에 따라서 변경, 현재는 50
-        self.tblResult.setHorizontalHeaderLabels(['기사제목','뉴스링크'])
+        self.tblResult.setHorizontalHeaderLabels(['기사제목','뉴스링크','기사날짜'])
         self.tblResult.setColumnWidth(0, 350)
         self.tblResult.setColumnWidth(1, 100)
+        self.tblResult.setColumnWidth(2, 100)
         self.tblResult.setEditTriggers(QAbstractItemView.NoEditTriggers) # readonly
 
         i = 0
         for item in result:
             title = self.strip_tag(item[0]['title'])
             link = item[0]['originallink']
+            pubDate = item[0]['pubDate']
             self.tblResult.setItem(i, 0, QTableWidgetItem(title))
             self.tblResult.setItem(i, 1, QTableWidgetItem(link))
+            self.tblResult.setItem(i, 2, QTableWidgetItem(pubDate))
             i += 1
 
     def strip_tag(self, title): # html 태그를 없애주는 함수
@@ -80,13 +83,13 @@ class qTemplate(QWidget):
     
     def getPostData(self, post):
         temp = []
-        title = post['title']
-        description = post['description']
+        title = self.strip_tag(post['title'])
+        description = self.strip_tag(post['description'])
         originallink = post['originallink']
         link = post['link']
         pubDate = post['pubDate']
 
-        temp.append({'title':title, 'description':description, 'originallink':originallink, 'link':link})
+        temp.append({'title':title, 'description':description, 'originallink':originallink, 'link':link, 'pubDate':pubDate})
 
         return temp
 
